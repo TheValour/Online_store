@@ -7,11 +7,14 @@ export default function ItemContainer() {
     const [items, setItems] = useState(1);
     const ctx = useContext(CartContext);
 
-    const onChangeHandler = (event) => {
-        setItems(event.target.value)
-    }
-    function addTocart() {
-        ctx.setNoCart(pre => pre + Number(items))
+    const onChangeHandler = (event, productId) => {
+        setItems(event.target.value);
+    };
+
+    function addTocart(productId) {
+        ctx.setNoCart(pre => pre + Number(items));
+        ctx.setItems(productId, items);
+        console.log(productId); // Access the productId here
     }
 
     return (
@@ -22,8 +25,15 @@ export default function ItemContainer() {
                     <div className={styles.details}>
                         <h3 className={styles.name}>{product.name}</h3>
                         <p className={styles.price}>{`$ ${product.price}`}</p>
-                        <button className={styles.button} onClick={addTocart}>Add to Cart</button>
-                        <input type="number" onChange={onChangeHandler} className={styles.input} placeholder='1' />
+                        <button className={styles.button} onClick={() => addTocart(product.id)}>
+                            Add to Cart
+                        </button>
+                        <input
+                            type="number"
+                            onChange={onChangeHandler}
+                            className={styles.input}
+                            placeholder='1'
+                        />
                     </div>
                 </div>
             ))}

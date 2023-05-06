@@ -5,4 +5,9 @@ const CartContext = createContext({
     setNoCart: () => { }
 })
 
+export const OrderItems = createContext({
+    items: {},
+    setItems: () => { }
+})
+
 export default CartContext;
