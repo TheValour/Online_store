@@ -1,0 +1,10 @@
+.modalItem{
+    background-color: whitesmoke;
+    margin: 1vh;
+    border-radius: 1vh;
+    font-size: 2.3vh;
+    padding: 1vw;
+}
+.price{
+    color: rgb(78, 72, 72);
+}
