@@ -1,0 +1,17 @@
+.cartButton{
+    margin-right: 3vw;
+    background-color: rgb(99, 98, 98);
+    border-radius: 2vh;
+    padding: 1vh;
+    width: 10vw;
+    display: inline-flex;
+}
+.circle{
+    width: 4vh;
+    text-align: center;
+    height: 4vh;
+    color: black;
+    margin-left: 2vh;
+    border-radius: 50%;
+    background-color: white;
+}

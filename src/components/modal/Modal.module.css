@@ -1,0 +1,51 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(86, 81, 81);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 50vw;
+    height: 50vh;
+  }
+  
+  .OVERLAY{
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color: aqua;
+    opacity: 0.7;
+    z-index: 100;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .closeButton {
+    display: block;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .closeButton:hover {
+    background-color: #3E8E41;
+  }
+  
