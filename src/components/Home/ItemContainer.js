@@ -1,9 +1,8 @@
 import { useContext, useState } from 'react';
-import foodDishes from './Data';
 import styles from './ItemContainer.module.css';
 import CartContext from '../context';
 
-export default function ItemContainer() {
+export default function ItemContainer({ meals }) {
     const [items, setItems] = useState(1);
     const ctx = useContext(CartContext);
 
@@ -19,7 +18,7 @@ export default function ItemContainer() {
 
     return (
         <div className={styles.container}>
-            {foodDishes.map((product) => (
+            {meals.map((product) => (
                 <div key={product.id} className={styles.product}>
                     <img src={product.image} alt={product.name} className={styles.image} />
                     <div className={styles.details}>

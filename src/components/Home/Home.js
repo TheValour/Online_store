@@ -5,7 +5,7 @@ import ItemContainer from './ItemContainer'
 import Footer from '../footer/Footer'
 import CartContext from '../context'
 
-export default function Home() {
+export default function Home({ meals }) {
     const [noCart, setNoCart] = useState(0);
     const [items, setItems] = useState(Array(7).fill(0));
     const modifyItem = (index, newValue) => {
@@ -27,7 +27,7 @@ export default function Home() {
         >
             <Navbar />
             <ImageSlider />
-            <ItemContainer setNoCart={setNoCart} />
+            <ItemContainer setNoCart={setNoCart} meals={meals} />
             <Footer />
         </CartContext.Provider >
     )
