@@ -30,6 +30,7 @@ export default function Item({ product }) {
                     onChange={onChangeHandler}
                     className={styles.input}
                     placeholder='1'
+                    min={0}
                 />
             </div>
         </div>
