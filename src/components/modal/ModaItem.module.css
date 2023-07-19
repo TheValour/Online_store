@@ -1,4 +1,4 @@
-.modalItem{
+.modalItem {
     background-color: whitesmoke;
     margin: 1vh;
     border-radius: 1vh;
@@ -7,10 +7,16 @@
     display: flex;
     justify-content: space-between;
 }
-.price{
+
+.price {
     color: rgb(78, 72, 72);
 }
-.frequencyContainer{
+
+.btn {
+    margin: 2vh;
+}
+
+.frequencyContainer {
     border: 1px solid black;
     width: 5vh;
     height: 5vh;
