@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../navbar/Navbar'
 import ImageSlider from '../imageSlider/ImageSlider'
 import ItemContainer from './ItemContainer'
 import Footer from '../footer/Footer'
 import CartContext from '../context'
 
-export default function Home({ meals }) {
+export default function Home() {
     const [noCart, setNoCart] = useState(0);
-    const [items, setItems] = useState(Array(7).fill(0));
+    const [items, setItems] = useState(Array(9).fill(0));
     const modifyItem = (index, newValue) => {
         setItems((prevItems) => {
             const updatedItems = [...prevItems];
@@ -16,18 +16,51 @@ export default function Home({ meals }) {
         });
     };
 
+    const [meals, setMeals] = useState();
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const fetchMeals = async () => {
+            const response = await fetch('https://http-request-da0ed-default-rtdb.firebaseio.com/meals.json');
+            if (!response.ok) {
+                throw new Error("Something went wrong!");
+            }
+            const responseData = await response.json();
+
+
+            const tempData = [];
+            let i = 1;
+            for (const key in responseData) {
+                tempData.push({
+                    id: i++,
+                    key: key,
+                    name: responseData[key].name,
+                    description: responseData[key].description,
+                    image: responseData[key].image,
+                    price: responseData[key].price
+                })
+            }
+            setMeals(tempData);
+            //console.log(tempData);
+            setLoading(false)
+        }
+        fetchMeals().catch((err) => {
+            console.log(err.message)
+        })
+    }, [])
+
     return (
         <CartContext.Provider
             value={{
                 totalCart: noCart,
                 setNoCart: setNoCart,
                 items: items,
-                setItems: modifyItem
+                setItems: modifyItem,
             }}
         >
-            <Navbar />
+            <Navbar meals={meals} />
             <ImageSlider />
-            <ItemContainer setNoCart={setNoCart} meals={meals} />
+            {loading ? <>Something went wrong!</> : <ItemContainer setNoCart={setNoCart} meals={meals} />}
             <Footer />
         </CartContext.Provider >
     )

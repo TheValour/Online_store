@@ -21,7 +21,7 @@ export default function Item({ product }) {
             <img src={product.image} alt={product.name} className={styles.image} />
             <div className={styles.details}>
                 <h3 className={styles.name}>{product.name}</h3>
-                <p className={styles.price}>{`$ ${product.price}`}</p>
+                <p className={styles.price}>&#8377; {product.price}</p>
                 <button className={styles.button} onClick={() => addTocart(product.id)}>
                     Add to Cart
                 </button>
