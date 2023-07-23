@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import classes from './Order.module.css';
-import Submit from './Submit';
+// import Submit from './Submit';
 
 const Order = (props) => {
     // const [sub, setSub] = useState(false);
@@ -9,6 +9,7 @@ const Order = (props) => {
     const streetRef = useRef();
     const postalRef = useRef();
     const cityRef = useRef();
+    const emailRef = useRef();
 
     function confirmHandler(event) {
         //setSub(true);
@@ -18,6 +19,7 @@ const Order = (props) => {
             street: streetRef.current.value,
             postal: postalRef.current.value,
             city: cityRef.current.value,
+            email: emailRef.current.value,
         })
         nameRef.current.value = '';
         streetRef.current.value = '';
@@ -46,6 +48,10 @@ const Order = (props) => {
                 <div className={classes.control}>
                     <label htmlFor='city'>City</label>
                     <input type='text' id='city' ref={cityRef} />
+                </div>
+                <div className={classes.control}>
+                    <label htmlFor='email'>Email</label>
+                    <input type='email' id='email' ref={emailRef} />
                 </div>
                 <div className={classes.actions}>
                     <button type='button' onClick={props.onCancel}>

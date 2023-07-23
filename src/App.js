@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
-import Login from './components/login/Login'
+import React from 'react'
 import Home from './components/Home/Home';
+// import Form  from './Form';
 
 export default function App() {
-  const [isLogin, setIsLogin] = useState(true);
-
   return (
-    <div>
-      {!isLogin ?
-        <Login setIsLogin={setIsLogin} /> : <Home />
-      }
+    <div >
+      <Home />
+      {/* <Form/> */}
     </div>
   );
 }
